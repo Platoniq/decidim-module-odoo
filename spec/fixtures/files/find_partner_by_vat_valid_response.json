@@ -1,0 +1,48 @@
+{
+  "id": 14,
+  "name": "Juan A. Jiménez Gracia",
+  "firstname": "Juan A.",
+  "lastname": "Jiménez Gracia",
+  "display_name": "Jiménez Gracia",
+  "ref": "17453",
+  "lang": "es_ES",
+  "vat": "ES88773284T",
+  "type": "representative",
+  "email": "juan.jimenez.gracia@example.org",
+  "phone": "600123123",
+  "mobile": "",
+  "cooperator_register_number": 0,
+  "cooperator_end_date": "",
+  "sponsor_ref": "",
+  "coop_agreement_code": "",
+  "sponsorship_code": "OYD41",
+  "sponsees_number": 0,
+  "sponsees_max": 5,
+  "coop_candidate": true,
+  "member": false,
+  "addresses": [
+    {
+      "street": "-",
+      "zip_code": "-",
+      "city": "-",
+      "country": "Spain",
+      "state": "-"
+    },
+    {
+      "street": "Avenida Larga, 14",
+      "zip_code": "18006",
+      "city": "Granada",
+      "country": "Spain",
+      "state": "Granada"
+    },
+    {
+      "street": "Calle Falsa, 123",
+      "zip_code": "41202",
+      "city": "Umbrete",
+      "country": "Spain",
+      "state": "Sevilla"
+    }
+  ],
+  "banned_actions": [],
+  "inactive_sponsored": false
+}
