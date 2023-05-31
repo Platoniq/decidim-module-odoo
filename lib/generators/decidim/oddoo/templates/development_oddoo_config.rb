@@ -8,14 +8,14 @@ Decidim::Oddoo.configure do |config|
   }
 
   # Configure omniauth secrets
-  config.omniauth = {
-    enabled: ENV["OMNIAUTH_ODDOO_CLIENT_ID"].present?,
-    client_id: ENV["OMNIAUTH_ODDOO_CLIENT_ID"].presence,
-    client_secret: ENV["OMNIAUTH_ODDOO_CLIENT_SECRET"].presence,
+  config.keycloak_omniauth = {
+    enabled: ENV["OMNIAUTH_ODDOO_KEYCLOAK_CLIENT_ID"].present?,
+    client_id: ENV["OMNIAUTH_ODDOO_KEYCLOAK_CLIENT_ID"].presence,
+    client_secret: ENV["OMNIAUTH_ODDOO_KEYCLOAK_CLIENT_SECRET"].presence,
     client_options: {
-      site: ENV["OMNIAUTH_ODDOO_SITE"].presence,
-      realm: ENV["OMNIAUTH_ODDOO_REALM"].presence
+      site: ENV["OMNIAUTH_ODDOO_KEYCLOAK_SITE"].presence,
+      realm: ENV["OMNIAUTH_ODDOO_KEYCLOAK_REALM"].presence
     },
-    icon_path: ENV["OMNIAUTH_ODDOO_ICON_PATH"].presence || "media/images/oddoo_logo.svg"
+    icon_path: ENV["OMNIAUTH_ODDOO_KEYCLOAK_ICON_PATH"].presence || "media/images/oddoo_logo.svg"
   }
 end

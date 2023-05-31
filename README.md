@@ -22,27 +22,28 @@ bundle
 
 ## Configuration
 
-In order to make the Oddoo OAuth method available you need to add to your `config/secrets.yml` the entry below:
+In order to make the Oddoo OAuth method with Keycloak available you need to add to your
+`config/secrets.yml` the entry below:
 
 ```yaml
   omniauth:
-    oddoo:
+    oddoo_keycloak:
       enabled: true
-      icon_path: media/images/keycloak_logo.svg
+      icon_path: media/images/oddoo_logo.svg
 ```
 
 The rest of the configuration can be done with an initializer file as the ones in
 [this directory](lib/generators/decidim/oddoo/templates) or with environment variables:
 
-| ENV                          | Description                                                                                                                                                                                                           | Example                       |
-|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| OMNIAUTH_ODDOO_CLIENT_ID     | The Keycloak client ID                                                                                                                                                                                                | `your-client-id`              |
-| OMNIAUTH_ODDOO_CLIENT_SECRET | The Keycloak client secret                                                                                                                                                                                            | `your-client-secret`          |
-| OMNIAUTH_ODDOO_SITE          | The Keycloak site                                                                                                                                                                                                     | `https://example.org/oauth`   |
-| OMNIAUTH_ODDOO_REALM         | The Keycloak realm                                                                                                                                                                                                    | `example-realm`               |
-| OMNIAUTH_ODDOO_ICON_PATH     | **Optional**. The icon path for the "Sign in with Oddoo" button. In order to replace the default one, you need to include it under `app/packs/images` directory and reference it here as `media/images/your-icon.svg` | `media/images/oddoo_logo.svg` |
-| ODDOO_API_BASE_URL           | The base URL for the Oddoo API                                                                                                                                                                                        | `https://example.org/api`     |
-| ODDOO_API_API_KEY            | The API key to authenticate with the API                                                                                                                                                                              | `your-api-key`                |
+| ENV                                   | Description                                                                                                                                                                                                           | Example                       |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| OMNIAUTH_ODDOO_KEYCLOAK_CLIENT_ID     | The Keycloak client ID                                                                                                                                                                                                | `your-client-id`              |
+| OMNIAUTH_ODDOO_KEYCLOAK_CLIENT_SECRET | The Keycloak client secret                                                                                                                                                                                            | `your-client-secret`          |
+| OMNIAUTH_ODDOO_KEYCLOAK_SITE          | The Keycloak site                                                                                                                                                                                                     | `https://example.org/oauth`   |
+| OMNIAUTH_ODDOO_KEYCLOAK_REALM         | The Keycloak realm                                                                                                                                                                                                    | `example-realm`               |
+| OMNIAUTH_ODDOO_KEYCLOAK_ICON_PATH     | **Optional**. The icon path for the "Sign in with Oddoo" button. In order to replace the default one, you need to include it under `app/packs/images` directory and reference it here as `media/images/your-icon.svg` | `media/images/oddoo_logo.svg` |
+| ODDOO_API_BASE_URL                    | The base URL for the Oddoo API                                                                                                                                                                                        | `https://example.org/api`     |
+| ODDOO_API_API_KEY                     | The API key to authenticate with the API                                                                                                                                                                              | `your-api-key`                |
 
 ## Contributing
 

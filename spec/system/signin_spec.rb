@@ -18,12 +18,12 @@ describe "Login page", type: :system do
   context "when oddoo enabled" do
     let(:omniauth_settings) do
       {
-        omniauth_settings_oddoo_enabled: true,
-        omniauth_settings_oddoo_icon_path: "media/images/oddoo_logo.svg",
-        omniauth_settings_oddoo_client_id: "Example-Client",
-        omniauth_settings_oddoo_client_secret: "example-secret-for-oddoo",
-        omniauth_settings_oddoo_site: "http://localhost:8080/",
-        omniauth_settings_oddoo_realm: "example-realm"
+        omniauth_settings_oddoo_keycloak_enabled: true,
+        omniauth_settings_oddoo_keycloak_icon_path: "media/images/oddoo_logo.svg",
+        omniauth_settings_oddoo_keycloak_client_id: "Example-Client",
+        omniauth_settings_oddoo_keycloak_client_secret: "example-secret-for-oddoo",
+        omniauth_settings_oddoo_keycloak_site: "http://localhost:8080/",
+        omniauth_settings_oddoo_keycloak_realm: "example-realm"
       }
     end
 
@@ -35,7 +35,7 @@ describe "Login page", type: :system do
   context "when oddoo disabled" do
     let(:omniauth_settings) do
       {
-        omniauth_settings_oddoo_enabled: false
+        omniauth_settings_oddoo_keycloak_enabled: false
       }
     end
 
