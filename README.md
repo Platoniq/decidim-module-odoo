@@ -4,7 +4,7 @@ A Decidim module to sync Oddoo users who connect to the platform using Keycloak 
 
 This module allows the user to sign up in Decidim using the Oddoo data. The process is described below:
 
-![Sign up](examples/sign-up.png)
+![Sequence Diagram](examples/sequence-diagram.png)
 
 ## Installation
 
