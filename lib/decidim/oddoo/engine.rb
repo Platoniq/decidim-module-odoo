@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "omniauth/strategies/oddoo"
+require "omniauth/strategies/oddoo_keycloak"
 
 module Decidim
   module Oddoo
@@ -9,11 +9,11 @@ module Decidim
       isolate_namespace Decidim::Oddoo
 
       initializer "decidim_oddoo.omniauth" do
-        next unless Decidim::Oddoo.omniauth && Decidim::Oddoo.omniauth[:client_id]
+        next unless Decidim::Oddoo.keycloak_omniauth && Decidim::Oddoo.keycloak_omniauth[:client_id]
 
         Rails.application.config.middleware.use OmniAuth::Builder do
-          provider :oddoo, Decidim::Oddoo.omniauth[:client_id], Decidim::Oddoo.omniauth[:client_secret],
-                   client_options: Decidim::Oddoo.omniauth[:client_options]
+          provider :oddoo_keycloak, Decidim::Oddoo.keycloak_omniauth[:client_id], Decidim::Oddoo.keycloak_omniauth[:client_secret],
+                   client_options: Decidim::Oddoo.keycloak_omniauth[:client_options]
         end
       end
 

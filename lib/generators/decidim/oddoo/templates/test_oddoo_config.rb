@@ -8,7 +8,7 @@ Decidim::Oddoo.configure do |config|
   }
 
   # Configure omniauth secrets
-  config.omniauth = {
+  config.keycloak_omniauth = {
     enabled: true,
     client_id: "test-client-id",
     client_secret: "test-client-secret",

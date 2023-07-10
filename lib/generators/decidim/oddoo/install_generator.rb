@@ -13,7 +13,7 @@ module Decidim
             inject_into_file "development_app/config/secrets.yml", after: "icon: phone" do
               <<~YAML
                 |
-                |    oddoo:
+                |    oddoo_keycloak:
                 |      enabled: true
                 |      icon_path: media/images/oddoo_logo.svg
               YAML
@@ -23,7 +23,7 @@ module Decidim
             inject_into_file "spec/decidim_dummy_app/config/secrets.yml", after: "app_secret: fake-facebook-app-secret" do
               <<~YAML
                 |
-                |    oddoo:
+                |    oddoo_keycloak:
                 |      enabled: false
                 |      icon_path: media/images/oddoo_logo.svg
               YAML

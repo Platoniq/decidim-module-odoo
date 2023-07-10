@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe OmniAuth::Strategies::Oddoo do
+describe OmniAuth::Strategies::OddooKeycloak do
   subject do
     described_class.new({}, client_id, client_secret, client_options: client_options).tap do |strategy|
       allow(strategy).to receive(:request).and_return(request)
@@ -23,7 +23,7 @@ describe OmniAuth::Strategies::Oddoo do
 
   describe "client options" do
     it "has correct name" do
-      expect(subject.options.name).to eq("oddoo")
+      expect(subject.options.name).to eq("oddoo_keycloak")
     end
 
     it "has correct client id" do

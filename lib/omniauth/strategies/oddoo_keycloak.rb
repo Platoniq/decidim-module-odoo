@@ -4,7 +4,9 @@ require "omniauth-keycloak"
 
 module OmniAuth
   module Strategies
-    class Oddoo < OmniAuth::Strategies::KeycloakOpenId
+    class OddooKeycloak < OmniAuth::Strategies::KeycloakOpenId
+      option :name, "oddoo_keycloak"
+
       uid { oddoo_info[:ref] }
 
       info do
