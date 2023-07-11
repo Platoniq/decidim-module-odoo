@@ -1,5 +1,8 @@
 # Decidim::Odoo
 
+[![[CI] Lint](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/lint.yml/badge.svg)](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/lint.yml)
+[![[CI] Test](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/test.yml/badge.svg)](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/test.yml)
+
 A Decidim module to sync Odoo users who connect to the platform using Keycloak OpenID OAuth.
 
 This module allows the user to sign up in Decidim using the Odoo data. The process is described below:
