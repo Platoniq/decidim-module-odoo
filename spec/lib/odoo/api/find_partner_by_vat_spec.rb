@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/oddoo/test/shared_contexts"
+require "decidim/odoo/test/shared_contexts"
 
 module Decidim
-  describe Oddoo::Api::FindPartnerByVat, type: :class do
+  describe Odoo::Api::FindPartnerByVat, type: :class do
     subject { described_class.new("ES88773284T") }
 
     include_context "with stubs example api"
