@@ -2,7 +2,7 @@
 
 require "decidim/core/test/factories"
 
-module Decidim::Oddoo::Faker
+module Decidim::Odoo::Faker
   class << self
     def vat
       "ES#{Faker::IDNumber.spanish_citizen_number.tr("-", "")}"

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/oddoo/test/shared_contexts"
+require "decidim/odoo/test/shared_contexts"
 
 module Decidim
-  describe Oddoo::Api::Base::Request, type: :class do
+  describe Odoo::Api::Base::Request, type: :class do
     subject { described_class }
 
     include_context "with stubs example api"
@@ -23,7 +23,7 @@ module Decidim
         let(:http_status) { 500 }
 
         it "throws error" do
-          expect { subject.get("", params: params) }.to raise_error Decidim::Oddoo::Error
+          expect { subject.get("", params: params) }.to raise_error Decidim::Odoo::Error
         end
       end
     end
@@ -44,7 +44,7 @@ module Decidim
         let(:http_status) { 500 }
 
         it "throws error" do
-          expect { subject.post("", params: params) }.to raise_error Decidim::Oddoo::Error
+          expect { subject.post("", params: params) }.to raise_error Decidim::Odoo::Error
         end
       end
     end

@@ -8,12 +8,12 @@ ruby RUBY_VERSION
 # the Gemfile is copied to the development_app folder (almost) as is.
 base_path = ""
 base_path = "../" if File.basename(__dir__) == "development_app"
-require_relative "#{base_path}lib/decidim/oddoo/version"
+require_relative "#{base_path}lib/decidim/odoo/version"
 
-DECIDIM_VERSION = Decidim::Oddoo::DECIDIM_VERSION
+DECIDIM_VERSION = Decidim::Odoo::DECIDIM_VERSION
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-oddoo", path: "."
+gem "decidim-odoo", path: "."
 
 gem "bootsnap", "~> 1.4"
 gem "faker", "~> 2.14"

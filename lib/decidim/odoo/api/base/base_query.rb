@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Oddoo
+  module Odoo
     module Api
       module Base
         class BaseQuery

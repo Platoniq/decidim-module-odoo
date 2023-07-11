@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Oddoo
+  module Odoo
     module Api
       module Base
         class Request
@@ -19,7 +19,7 @@ module Decidim
                 request.headers = instance.base_headers.merge(headers)
               end
 
-              raise Decidim::Oddoo::Error, response.reason_phrase unless response.success?
+              raise Decidim::Odoo::Error, response.reason_phrase unless response.success?
 
               instance.response = JSON.parse(response.body)
               instance
@@ -31,7 +31,7 @@ module Decidim
           end
 
           def url(path)
-            "#{Decidim::Oddoo::Api.base_url}/#{path}"
+            "#{Decidim::Odoo::Api.base_url}/#{path}"
           end
 
           def base_params
@@ -39,7 +39,7 @@ module Decidim
           end
 
           def base_headers
-            { "api-key" => Decidim::Oddoo::Api.api_key }
+            { "api-key" => Decidim::Odoo::Api.api_key }
           end
         end
       end

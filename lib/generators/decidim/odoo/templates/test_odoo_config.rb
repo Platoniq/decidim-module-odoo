@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-Decidim::Oddoo.configure do |config|
+Decidim::Odoo.configure do |config|
   # Configure api credentials
   config.api = {
-    base_url: "https://test.oddoo.api.example.org",
+    base_url: "https://test.odoo.api.example.org",
     api_key: "test-api-key"
   }
 
@@ -13,7 +13,7 @@ Decidim::Oddoo.configure do |config|
     client_id: "test-client-id",
     client_secret: "test-client-secret",
     client_options: {
-      site: "https://test.oddoo.oauth.example.org",
+      site: "https://test.odoo.oauth.example.org",
       realm: "test-realm"
     }
   }

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Oddoo::Api::Base::BaseQuery, type: :class do
+  describe Odoo::Api::Base::BaseQuery, type: :class do
     subject { described_class.new }
 
     describe "#parsed_response" do
