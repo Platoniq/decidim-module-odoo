@@ -7,7 +7,7 @@ require_relative "api/find_partner_by_vat"
 
 module Decidim
   module Odoo
-    # This namespace holds the logic to connect to the CiViCRM REST API.
+    # This namespace holds the logic to connect to the Odoo REST API.
     module Api
       def self.config
         Decidim::Odoo.api
