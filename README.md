@@ -2,6 +2,8 @@
 
 [![[CI] Lint](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/lint.yml/badge.svg)](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/test.yml/badge.svg)](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/test.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2dada53525dd5a944089/maintainability)](https://codeclimate.com/github/Platoniq/decidim-module-odoo/maintainability)
+[![codecov](https://codecov.io/gh/Platoniq/decidim-module-odoo/branch/main/graph/badge.svg)](https://codecov.io/gh/Platoniq/decidim-module-odoo)
 
 A Decidim module to sync Odoo users who connect to the platform using Keycloak OpenID OAuth.
 
