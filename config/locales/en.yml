@@ -1,2 +1,7 @@
 ---
 en:
+  decidim:
+    odoo:
+      user:
+        errors:
+          not_unique: User is already taken

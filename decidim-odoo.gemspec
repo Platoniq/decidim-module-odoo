@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary = "A decidim odoo module"
   s.description = "A Decidim module to sync Odoo users who connect to the platform using Keycloak OpenID OAuth."
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Odoo::COMPAT_DECIDIM_VERSION
   s.add_dependency "omniauth-keycloak", "~> 1.5"

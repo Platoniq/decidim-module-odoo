@@ -2,6 +2,7 @@
 
 require_relative "api/base/base_query"
 require_relative "api/base/request"
+require_relative "api/find_partner"
 require_relative "api/find_partner_by_vat"
 
 module Decidim
