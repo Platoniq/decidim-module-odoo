@@ -9,3 +9,14 @@ module Decidim::Odoo::Faker
     end
   end
 end
+
+FactoryBot.define do
+  factory :odoo_user, class: "Decidim::Odoo::User" do
+    user
+    organization
+    odoo_user_id { Faker::Number.between(from: 1, to: 1000) }
+    ref { Faker::Number.between(from: 1, to: 1000).to_s }
+    coop_candidate { false }
+    member { false }
+  end
+end

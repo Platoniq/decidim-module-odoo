@@ -23,8 +23,6 @@ module Decidim
         ActiveSupport::Notifications.publish("decidim.odoo.user.updated", odoo_user.id)
 
         broadcast(:ok, odoo_user)
-      rescue ActiveRecord::RecordNotUnique
-        broadcast(:invalid, I18n.t("decidim.odoo.user.errors.not_unique"))
       rescue StandardError => e
         broadcast(:invalid, e.message)
       end
@@ -43,9 +41,8 @@ module Decidim
       end
 
       def update_user!
-        user.nickname = odoo_info[:vat]
-        user.name = odoo_info[:name]
-        user.email = odoo_info[:email]
+        user.nickname = odoo_info[:vat] if odoo_info[:vat]
+        user.name = odoo_info[:name] if odoo_info[:name]
         user.save!
       end
 
