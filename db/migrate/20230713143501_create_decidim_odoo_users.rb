@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimOdooUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :decidim_odoo_users do |t|
@@ -11,8 +13,8 @@ class CreateDecidimOdooUsers < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.index ["decidim_organization_id", "odoo_user_id"], name: "index_unique_odoo_user_and_organization", unique: true
-      t.index ["decidim_organization_id", "ref"], name: "index_unique_ref_and_organization", unique: true
+      t.index %w(decidim_organization_id odoo_user_id), name: "index_unique_odoo_user_and_organization", unique: true
+      t.index %w(decidim_organization_id ref), name: "index_unique_ref_and_organization", unique: true
     end
   end
 end
