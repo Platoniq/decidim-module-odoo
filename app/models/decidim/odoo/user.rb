@@ -9,6 +9,10 @@ module Decidim
       validates :user, uniqueness: true
       validates :odoo_user_id, uniqueness: { scope: :organization }
       validates :ref, uniqueness: { scope: :organization }
+
+      def odoo_member?
+        member || coop_candidate
+      end
     end
   end
 end

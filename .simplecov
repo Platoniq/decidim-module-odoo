@@ -3,6 +3,7 @@
 SimpleCov.start do
   root ENV.fetch("ENGINE_ROOT", nil)
 
+  add_filter "lib/decidim/odoo/test"
   add_filter "lib/decidim/odoo/version.rb"
   add_filter "lib/generators"
   add_filter "/spec"

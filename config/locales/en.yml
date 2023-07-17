@@ -1,2 +1,10 @@
 ---
 en:
+  decidim:
+    authorization_handlers:
+      odoo_member:
+        explanation: Get verified when the user is member or coop. candidate in Odoo
+        name: Odoo Membership
+    odoo:
+      errors:
+        not_found: Odoo user not found

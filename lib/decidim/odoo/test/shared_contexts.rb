@@ -10,3 +10,9 @@ shared_context "with stubs example api" do
     stub_request(http_method, /api\.example\.org/).to_return(status: http_status, body: data.to_json, headers: {})
   end
 end
+
+shared_examples_for "no authorization is created" do
+  it "does not create an authorization" do
+    expect { subject.perform_now(params) }.not_to change(Decidim::Authorization, :count)
+  end
+end
