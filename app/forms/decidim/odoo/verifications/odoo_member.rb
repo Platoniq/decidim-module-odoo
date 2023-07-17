@@ -43,7 +43,9 @@ module Decidim
 
         def user_valid
           errors.add(:user, "decidim.odoo.errors.not_found") if odoo_user.blank? && odoo_api_user.blank?
-          errors.add(:user, "decidim.odoo.errors.not_member") if !odoo_user&.odoo_member? || (odoo_api_user && !odoo_api_user[:member] && !odoo_api_user[:coop_candidate])
+          if (odoo_user && !odoo_user.odoo_member?) || (odoo_api_user && !odoo_api_user[:member] && !odoo_api_user[:coop_candidate])
+            errors.add(:user, "decidim.odoo.errors.not_member")
+          end
         end
       end
     end

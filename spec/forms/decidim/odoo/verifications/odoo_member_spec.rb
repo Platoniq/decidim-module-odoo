@@ -52,16 +52,33 @@ module Decidim::Odoo
         it { is_expected.not_to be_valid }
       end
 
-      context "when the user and the api user do not exist" do
+      context "when the user does not exist" do
         let(:user) { create :user }
 
-        before do
-          # rubocop: disable RSpec/AnyInstance
-          allow_any_instance_of(Decidim::Odoo::Api::FindPartner).to receive(:result).and_raise(Decidim::Odoo::Error)
-          # rubocop: enable RSpec/AnyInstance
+        context "when the api user is a member" do
+          it { is_expected.to be_valid }
         end
 
-        it { is_expected.not_to be_valid }
+        context "when the api user is not a member" do
+          let(:data) do
+            {
+              member: false,
+              coop_candidate: false
+            }
+          end
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when the api user does not exist" do
+          before do
+            # rubocop: disable RSpec/AnyInstance
+            allow_any_instance_of(Decidim::Odoo::Api::FindPartner).to receive(:result).and_raise(Decidim::Odoo::Error)
+            # rubocop: enable RSpec/AnyInstance
+          end
+
+          it { is_expected.not_to be_valid }
+        end
       end
     end
   end
