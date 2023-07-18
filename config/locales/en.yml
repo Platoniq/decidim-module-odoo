@@ -1,10 +1,41 @@
 ---
 en:
   decidim:
+    admin:
+      filters:
+        coop_candidate_eq:
+          label: Is coop candidate
+          values:
+            'false': 'No'
+            'true': 'Yes'
+        member_eq:
+          label: Is member
+          values:
+            'false': 'No'
+            'true': 'Yes'
     authorization_handlers:
       odoo_member:
         explanation: Get verified when the user is member or coop. candidate in Odoo
         name: Odoo Membership
     odoo:
+      admin:
+        members:
+          index:
+            actions: Actions
+            alias: Alias
+            contact: Contact
+            coop_candidate: Coop candidate
+            empty: There are no members from Odoo
+            last_sync: Last synchronization
+            member: Member
+            name: Name
+            odoo_id: Odoo ID
+            ref: Ref
+            show_email: Show email
+            sync: Synchronize with Odoo
+            sync_all: Synchronize all with Odoo
+            title: Odoo Members
+          sync:
+            success: The synchronization has started. It may take a few minutes
       errors:
         not_found: Odoo user not found

@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t(".sync_all"), decidim_odoo_admin.sync_members_path, class: "button tiny button--title" %>
+    </h2>
+  </div>
+  <%= admin_filter_selector %>
+  <div class="card-section">
+    <% if @odoo_users.any? %>
+      <table class="table-list odoo-groups">
+        <thead>
+        <tr>
+          <th><%= t(".odoo_id") %></th>
+          <th><%= t(".ref") %></th>
+          <th><%= t(".name") %></th>
+          <th><%= t(".alias") %></th>
+          <th><%= t(".coop_candidate") %></th>
+          <th><%= t(".member") %></th>
+          <th><%= t(".last_sync") %></th>
+          <th><%= t(".actions") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @odoo_users.each do |odoo_user| %>
+          <tr>
+            <td><%= odoo_user.odoo_user_id %></td>
+            <td><%= odoo_user.ref %></td>
+            <% if odoo_user.user.nickname.present? %>
+              <td><%= link_to odoo_user.user.name, decidim.profile_path(odoo_user.user.nickname) %></td>
+              <td><%= link_to odoo_user.user.nickname, decidim.profile_path(odoo_user.user.nickname) %></td>
+            <% else %>
+              <td><%= odoo_user.user.name %></td>
+              <td><%= odoo_user.user.nickname %></td>
+            <% end %>
+            <td class="<%= boolean_class(odoo_user.coop_candidate) %>"><%= content_tag :strong, humanize_boolean(odoo_user.coop_candidate) %></td>
+            <td class="<%= boolean_class(odoo_user.member) %>"><%= content_tag :strong, humanize_boolean(odoo_user.member) %></td>
+            <td class="<%= last_sync_class(odoo_user.updated_at) %>"><%= l(odoo_user.updated_at, format: :decidim_short) %></td>
+            <td class="table-list__actions">
+              <%= icon_link_to "reload", decidim_odoo_admin.sync_members_path(id: odoo_user.id), t(".sync"), class: "action-icon--reload" %>
+              <% if allowed_to? :show_email, :user, user: odoo_user.user %>
+                <%= icon_link_to "envelope-open", decidim_admin.show_email_officialization_path(user_id: odoo_user.user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: odoo_user.user.name, toggle: "show-email-modal" } %>
+              <% end %>
+              <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(odoo_user.user), t(".contact"), class:"action-icon--new" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate @odoo_users, theme: "decidim" %>
+    <% else %>
+      <p class="callout warning">
+        <%= t(".empty") %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<%= render partial: "decidim/admin/officializations/show_email_modal" %>

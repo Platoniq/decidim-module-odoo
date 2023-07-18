@@ -8,7 +8,7 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Odoo
 
-      config.after_initialize do
+      config.to_prepare do
         Decidim::User.include(Decidim::Odoo::UserOverride)
       end
 
