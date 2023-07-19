@@ -31,12 +31,13 @@ module Decidim
 
       initializer "decidim.odoo.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item "Odoo",
-                    decidim_odoo_admin.members_path,
-                    icon_name: "people",
-                    position: 5.75,
-                    active: is_active_link?(decidim_odoo_admin.members_path, :inclusive),
-                    if: defined?(current_user) && current_user&.read_attribute("admin")
+          menu.add_item :odoo,
+                        "Odoo",
+                        decidim_odoo_admin.members_path,
+                        icon_name: "people",
+                        position: 5.75,
+                        active: is_active_link?(decidim_odoo_admin.members_path, :inclusive),
+                        if: defined?(current_user) && current_user&.read_attribute("admin")
         end
       end
 
