@@ -38,7 +38,13 @@ describe "Admin panel", type: :system do
       let(:user_two) { create(:user, :confirmed, organization: organization, nickname: "user_two") }
       let!(:odoo_user_one) { create :odoo_user, user: user_one, member: true, created_at: two_days_ago, updated_at: two_days_ago }
       let!(:odoo_user_two) { create :odoo_user, user: user_two, coop_candidate: true, created_at: two_weeks_ago, updated_at: two_weeks_ago }
-      let!(:odoo_users) { create_list(:odoo_user, 20, organization: organization) }
+      let!(:odoo_users) do
+        create_list(:odoo_user, 20) do |odoo_user|
+          odoo_user.user = create(:user, :confirmed, organization: organization)
+          odoo_user.organization = organization
+          odoo_user.save!
+        end
+      end
 
       before do
         visit decidim_odoo_admin.members_path
@@ -54,6 +60,19 @@ describe "Admin panel", type: :system do
         within ".pagination" do
           expect(page).to have_content("Next")
           expect(page).to have_content("Last")
+        end
+      end
+
+      context "when clicking on show email" do
+        it "shows the email in a modal" do
+          first("a.action-icon--show-email").click
+          within("#show-email-modal") do
+            expect(page).to have_content("hidden")
+            find("button", text: "Show").click
+            sleep(1)
+            expect(page).not_to have_content("hidden")
+            expect(page).to have_content(odoo_users.last.user.email)
+          end
         end
       end
 
