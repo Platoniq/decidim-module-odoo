@@ -51,7 +51,7 @@ module Decidim
       subject { user.odoo_user }
 
       context "when user has a related odoo contact" do
-        let!(:contact) { create(:odoo_user, organization: organization, user: user) }
+        let!(:contact) { create(:odoo_user, user: user) }
 
         it { is_expected.to be_a Decidim::Odoo::User }
       end

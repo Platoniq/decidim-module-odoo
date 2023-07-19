@@ -34,7 +34,7 @@ module Decidim
         end
 
         context "when odoo user already exists" do
-          let!(:odoo_user) { create :odoo_user, user: user, organization: user.organization }
+          let!(:odoo_user) { create :odoo_user, user: user }
 
           it "updates the updated at column" do
             sleep(1)
