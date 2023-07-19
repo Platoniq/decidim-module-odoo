@@ -76,6 +76,13 @@ describe "Admin panel", type: :system do
         end
       end
 
+      context "when clicking on contact" do
+        it "redirects to a new conversation" do
+          first("a.action-icon--new").click
+          expect(page).to have_content("Conversation with")
+        end
+      end
+
       context "when filtering by an existing user" do
         before do
           within "form" do
