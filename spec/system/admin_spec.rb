@@ -105,7 +105,7 @@ describe "Admin panel", type: :system do
             within "tr" do
               expect(page).to have_selector("td.success", text: "Yes")
               expect(page).to have_selector("td.alert", text: "No")
-              expect(page).to have_selector("td.alert", text: odoo_user_one.updated_at.year)
+              expect(page).to have_selector("td.alert", text: odoo_user_two.updated_at.year)
             end
           end
         end
