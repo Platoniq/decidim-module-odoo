@@ -11,6 +11,30 @@ This module allows the user to sign up in Decidim using the Odoo data. The proce
 
 ![Sequence Diagram](examples/sequence-diagram.png)
 
+When a user logs in to the system using Odoo Keycloak OAuth, the information of the user provided
+by the Odoo API is stored in a model.
+
+With this information, we can check if the user is a member or not depending on the values of the
+properties `member` and `coop_candidate`. If any of them is true, we will determine whether the user
+is a member. Taking this into account, every time we update the Odoo information of the user, we
+check this condition to create an authorization: `odoo_member` or delete it if the user is
+no longer a member.
+
+The Odoo information of a user is updated automatically the first time the user signs up in the
+system via OAuth, but it can be manually updated as described below:
+
+- By an admin in the `/admin/odoo/members` route syncing a single user or all the users in the 
+system
+- Using the `rake` task: `decidim:odoo:sync:members`. It will update all the users from all the
+organizations, so we recommend using it when the traffic in the platform is low. You can easily
+schedule it using [whenever](https://github.com/javan/whenever) adding the lines:
+
+```ruby
+every :day, at: "2:00am" do
+  rake "decidim:odoo:sync:members"
+end
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -47,15 +71,15 @@ In order to make the Odoo OAuth method with Keycloak available you need to add t
 The rest of the configuration can be done with an initializer file as the ones in
 [this directory](lib/generators/decidim/odoo/templates) or with environment variables:
 
-| ENV                                   | Description                                                                                                                                                                                                           | Example                       |
-|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| OMNIAUTH_ODOO_KEYCLOAK_CLIENT_ID     | The Keycloak client ID                                                                                                                                                                                                | `your-client-id`              |
-| OMNIAUTH_ODOO_KEYCLOAK_CLIENT_SECRET | The Keycloak client secret                                                                                                                                                                                            | `your-client-secret`          |
-| OMNIAUTH_ODOO_KEYCLOAK_SITE          | The Keycloak site                                                                                                                                                                                                     | `https://example.org/oauth`   |
-| OMNIAUTH_ODOO_KEYCLOAK_REALM         | The Keycloak realm                                                                                                                                                                                                    | `example-realm`               |
+| ENV                                  | Description                                                                                                                                                                                                          | Example                      |
+|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| OMNIAUTH_ODOO_KEYCLOAK_CLIENT_ID     | The Keycloak client ID                                                                                                                                                                                               | `your-client-id`             |
+| OMNIAUTH_ODOO_KEYCLOAK_CLIENT_SECRET | The Keycloak client secret                                                                                                                                                                                           | `your-client-secret`         |
+| OMNIAUTH_ODOO_KEYCLOAK_SITE          | The Keycloak site                                                                                                                                                                                                    | `https://example.org/oauth`  |
+| OMNIAUTH_ODOO_KEYCLOAK_REALM         | The Keycloak realm                                                                                                                                                                                                   | `example-realm`              |
 | OMNIAUTH_ODOO_KEYCLOAK_ICON_PATH     | **Optional**. The icon path for the "Sign in with Odoo" button. In order to replace the default one, you need to include it under `app/packs/images` directory and reference it here as `media/images/your-icon.svg` | `media/images/odoo_logo.svg` |
-| ODOO_API_BASE_URL                    | The base URL for the Odoo API                                                                                                                                                                                        | `https://example.org/api`     |
-| ODOO_API_API_KEY                     | The API key to authenticate with the API                                                                                                                                                                              | `your-api-key`                |
+| ODOO_API_BASE_URL                    | The base URL for the Odoo API                                                                                                                                                                                        | `https://example.org/api`    |
+| ODOO_API_API_KEY                     | The API key to authenticate with the API                                                                                                                                                                             | `your-api-key`               |
 
 > **IMPORTANT**: Remember to activate the verification method `odoo_member` in the
 > Decidim `/system` admin page for your organization.
