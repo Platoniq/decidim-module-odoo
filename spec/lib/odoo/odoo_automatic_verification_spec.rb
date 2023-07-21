@@ -32,7 +32,7 @@ describe "Automatic verification after oauth sign up" do
       expect do
         ActiveSupport::Notifications.publish(
           "decidim.odoo.user.updated",
-          contact_id: odoo_user.id
+          odoo_user.id
         )
       end.to have_enqueued_job(Decidim::Odoo::AutoVerificationJob)
     end
