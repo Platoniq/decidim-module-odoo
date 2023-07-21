@@ -31,6 +31,10 @@ module Decidim
       }
     end
 
+    config_accessor :authorizations do
+      [:odoo_member]
+    end
+
     class Error < StandardError; end
   end
 end

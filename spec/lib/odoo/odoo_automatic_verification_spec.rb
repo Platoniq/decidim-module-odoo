@@ -24,6 +24,19 @@ describe "Automatic verification after oauth sign up" do
       end.to have_enqueued_job(Decidim::Odoo::OmniauthUserSyncJob)
     end
   end
+
+  context "when a odoo user is updated" do
+    let!(:odoo_user) { create(:odoo_user) }
+
+    it "runs the AutoVerificationJob" do
+      expect do
+        ActiveSupport::Notifications.publish(
+          "decidim.odoo.user.updated",
+          contact_id: odoo_user.id
+        )
+      end.to have_enqueued_job(Decidim::Odoo::AutoVerificationJob)
+    end
+  end
 end
 
 # rubocop:enable RSpec/DescribeClass

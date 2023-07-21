@@ -57,6 +57,9 @@ The rest of the configuration can be done with an initializer file as the ones i
 | ODOO_API_BASE_URL                    | The base URL for the Odoo API                                                                                                                                                                                        | `https://example.org/api`     |
 | ODOO_API_API_KEY                     | The API key to authenticate with the API                                                                                                                                                                              | `your-api-key`                |
 
+> **IMPORTANT**: Remember to activate the verification method `odoo_member` in the
+> Decidim `/system` admin page for your organization.
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

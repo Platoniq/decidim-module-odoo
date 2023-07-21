@@ -25,6 +25,19 @@ module Decidim
         ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |_name, data|
           Decidim::Odoo::OmniauthUserSyncJob.perform_later(data) if data[:provider] == Decidim::Odoo::OMNIAUTH_PROVIDER_NAME
         end
+        ActiveSupport::Notifications.subscribe "decidim.odoo.user.updated" do |_name, data|
+          Decidim::Odoo::AutoVerificationJob.perform_later(data)
+        end
+      end
+
+      initializer "decidim_odoo.authorizations" do
+        next unless Decidim::Odoo.authorizations
+
+        if Decidim::Odoo.authorizations.include?(:odoo_member)
+          Decidim::Verifications.register_workflow(:odoo_member) do |workflow|
+            workflow.form = "Decidim::Odoo::Verifications::OdooMember"
+          end
+        end
       end
 
       initializer "decidim_odoo.webpacker.assets_path" do
