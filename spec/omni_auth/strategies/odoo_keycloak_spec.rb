@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/odoo/test/shared_contexts"
+
 describe OmniAuth::Strategies::OdooKeycloak do
   subject do
     described_class.new({}, client_id, client_secret, client_options: client_options).tap do |strategy|
@@ -44,10 +46,11 @@ describe OmniAuth::Strategies::OdooKeycloak do
   end
 
   describe "info" do
+    include_context "with stubs example api"
+
     before do
       # rubocop: disable RSpec/SubjectStub
       # rubocop: disable RSpec/AnyInstance
-      allow_any_instance_of(Decidim::Odoo::Api::FindPartnerByVat).to receive(:initialize).and_return(nil)
       allow_any_instance_of(Decidim::Odoo::Api::FindPartnerByVat).to receive(:result).and_return(odoo_info)
       allow(subject).to receive(:raw_info).and_return({})
       # rubocop: enable RSpec/SubjectStub

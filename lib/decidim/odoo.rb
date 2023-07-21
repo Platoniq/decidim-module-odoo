@@ -9,6 +9,8 @@ module Decidim
   module Odoo
     include ActiveSupport::Configurable
 
+    OMNIAUTH_PROVIDER_NAME = "odoo_keycloak"
+
     config_accessor :api do
       {
         base_url: ENV["ODOO_API_BASE_URL"].presence,

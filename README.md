@@ -25,6 +25,13 @@ And then execute:
 bundle
 ```
 
+Install (and run) migrations:
+
+```
+bundle exec rails decidim_odoo:install:migrations
+bundle exec rails db:migrate
+```
+
 ## Configuration
 
 In order to make the Odoo OAuth method with Keycloak available you need to add to your
