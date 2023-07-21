@@ -58,7 +58,7 @@ module Decidim
         end
 
         it "does not create a odoo user" do
-          expect { subject.call }.to change(Decidim::Odoo::User, :count).by(0)
+          expect { subject.call }.not_to change(Decidim::Odoo::User, :count)
         end
       end
     end

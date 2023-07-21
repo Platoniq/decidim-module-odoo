@@ -46,7 +46,7 @@ module Decidim
           end
 
           context "when older than 1 day" do
-            let(:param) { Time.zone.now - 2.days }
+            let(:param) { 2.days.ago }
 
             it "returns warning" do
               expect(subject).to eq("warning")
@@ -54,7 +54,7 @@ module Decidim
           end
 
           context "when older than 1 week" do
-            let(:param) { Time.zone.now - 2.weeks }
+            let(:param) { 2.weeks.ago }
 
             it "returns alert" do
               expect(subject).to eq("alert")

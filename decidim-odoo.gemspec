@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["francisco.bolivar@nazaries.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-odoo"
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 3.0"
 
   s.name = "decidim-odoo"
   s.summary = "A decidim odoo module"

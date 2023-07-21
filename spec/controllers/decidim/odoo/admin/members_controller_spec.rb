@@ -30,7 +30,7 @@ module Decidim
             it "enqueues one job" do
               expect { get :sync, params: { id: odoo_users.first.id } }.to have_enqueued_job(Decidim::Odoo::SyncUsersJob).with(organization.id, odoo_users.first.id.to_s)
 
-              expect(response).to redirect_to(members_path)
+              expect(response).to redirect_to("/admin/odoo/members")
             end
           end
 
@@ -38,7 +38,7 @@ module Decidim
             it "enqueues n jobs" do
               expect { get :sync }.to have_enqueued_job(Decidim::Odoo::SyncUsersJob).with(organization.id, nil)
 
-              expect(response).to redirect_to(members_path)
+              expect(response).to redirect_to("/admin/odoo/members")
             end
           end
         end

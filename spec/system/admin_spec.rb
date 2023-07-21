@@ -32,8 +32,8 @@ describe "Admin panel", type: :system do
     end
 
     context "when there are multiple users users" do
-      let(:two_days_ago) { Time.zone.now - 2.days }
-      let(:two_weeks_ago) { Time.zone.now - 2.weeks }
+      let(:two_days_ago) { 2.days.ago }
+      let(:two_weeks_ago) { 2.weeks.ago }
       let(:user_one) { create(:user, :confirmed, organization: organization, nickname: "user_one") }
       let(:user_two) { create(:user, :confirmed, organization: organization, nickname: "user_two") }
       let!(:odoo_user_one) { create :odoo_user, user: user_one, member: true, created_at: two_days_ago, updated_at: two_days_ago }
