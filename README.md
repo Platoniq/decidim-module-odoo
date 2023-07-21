@@ -41,7 +41,7 @@ end
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-odoo", git: "https://github.com/Platoniq/decidim-module-odoo", branch: "main"
+gem "decidim-odoo", "~> 0.2.0"
 ```
 
 And then execute:
@@ -62,7 +62,7 @@ Depending on your Decidim version, choose the corresponding version to ensure co
 | Version | Compatible decidim versions |
 |---------|-----------------------------|
 | 0.2.x   | v0.27.x                     |
-| 0.1.x   | v0.26.x                     |
+| 0.1.x   | v0.25.x, v0.26.x            |
 
 ## Configuration
 
