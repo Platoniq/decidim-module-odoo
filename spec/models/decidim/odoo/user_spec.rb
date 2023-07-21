@@ -24,7 +24,7 @@ module Decidim
           end
         end
 
-        context "when the user is member" do
+        context "when the user is coop candidate" do
           before do
             allow(odoo_user).to receive(:coop_candidate).and_return(true)
           end
