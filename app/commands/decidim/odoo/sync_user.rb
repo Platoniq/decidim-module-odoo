@@ -38,6 +38,9 @@ module Decidim
         @odoo_user.coop_candidate = odoo_info[:coop_candidate]
         @odoo_user.member = odoo_info[:member]
         @odoo_user.save!
+        # rubocop:disable Rails/SkipsModelValidations
+        @odoo_user.touch
+        # rubocop:enable Rails/SkipsModelValidations
       end
 
       def update_user!

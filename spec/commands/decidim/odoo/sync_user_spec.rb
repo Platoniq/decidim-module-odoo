@@ -32,6 +32,16 @@ module Decidim
         it "creates a odoo user" do
           expect { subject.call }.to change(Decidim::Odoo::User, :count).by(1)
         end
+
+        context "when odoo user already exists" do
+          let!(:odoo_user) { create :odoo_user, user: user }
+
+          it "updates the updated at column" do
+            sleep(1)
+            subject.call
+            expect(odoo_user.updated_at).to be < odoo_user.reload.updated_at
+          end
+        end
       end
 
       context "when user has no odoo identity" do

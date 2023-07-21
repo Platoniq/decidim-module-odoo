@@ -8,7 +8,7 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Odoo
 
-      config.after_initialize do
+      config.to_prepare do
         Decidim::User.include(Decidim::Odoo::UserOverride)
       end
 
@@ -21,7 +21,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_odoo.user_contact_sync" do
+      initializer "decidim_odoo.user_sync" do
         ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |_name, data|
           Decidim::Odoo::OmniauthUserSyncJob.perform_later(data) if data[:provider] == Decidim::Odoo::OMNIAUTH_PROVIDER_NAME
         end

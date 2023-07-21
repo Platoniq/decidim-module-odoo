@@ -3,5 +3,6 @@
 base_locale: en
 locales: [en]
 ignore_unused:
-  - decidim.odoo.errors.*
+  - decidim.admin.filters.*
   - decidim.authorization_handlers.odoo_member.*
+  - decidim.odoo.errors.*

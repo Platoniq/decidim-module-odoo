@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/odoo/admin"
+require "decidim/odoo/admin_engine"
 require "decidim/odoo/api"
 require "decidim/odoo/engine"
 
