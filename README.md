@@ -1,5 +1,6 @@
 # Decidim::Odoo
 
+[![Gem Version](https://img.shields.io/gem/v/decidim-odoo.svg)](https://badge.fury.io/rb/decidim-odoo)
 [![[CI] Lint](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/lint.yml/badge.svg)](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/test.yml/badge.svg)](https://github.com/Platoniq/decidim-module-odoo/actions/workflows/test.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2dada53525dd5a944089/maintainability)](https://codeclimate.com/github/Platoniq/decidim-module-odoo/maintainability)
