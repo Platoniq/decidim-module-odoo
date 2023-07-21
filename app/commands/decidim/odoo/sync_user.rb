@@ -2,7 +2,7 @@
 
 module Decidim
   module Odoo
-    class SyncUser < Rectify::Command
+    class SyncUser < Decidim::Command
       # Public: Initializes the command.
       #
       # user - A decidim user

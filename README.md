@@ -56,6 +56,13 @@ bundle exec rails decidim_odoo:install:migrations
 bundle exec rails db:migrate
 ```
 
+Depending on your Decidim version, choose the corresponding version to ensure compatibility:
+
+| Version | Compatible decidim versions |
+|---------|-----------------------------|
+| 0.2.x   | v0.27.x                     |
+| 0.1.x   | v0.26.x                     |
+
 ## Configuration
 
 In order to make the Odoo OAuth method with Keycloak available you need to add to your

@@ -58,7 +58,7 @@ module Decidim
         subject { Decidim::Odoo::User.destroy(odoo_user.id) }
 
         it "does not remove the user" do
-          expect { subject }.to change(Decidim::User, :count).by(0)
+          expect { subject }.not_to change(Decidim::User, :count)
         end
       end
     end
