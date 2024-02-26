@@ -21,7 +21,7 @@ module Decidim::Odoo
       let(:odoo_user) { create :odoo_user, member: true }
       let(:metadata) do
         {
-          uid: odoo_user.odoo_user_id,
+          uid: odoo_user.ref,
           odoo_user_ref: odoo_user.ref
         }
       end

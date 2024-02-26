@@ -26,7 +26,7 @@ module Decidim
         end
 
         def uid
-          odoo_user&.odoo_user_id
+          odoo_user&.ref
         end
 
         def odoo_user
