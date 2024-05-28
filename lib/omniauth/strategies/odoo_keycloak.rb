@@ -20,6 +20,22 @@ module OmniAuth
       def odoo_info
         @odoo_info ||= ::Decidim::Odoo::Api::FindPartnerByVat.new(raw_info["preferred_username"]).result
       end
+
+      def authorize_params
+        super.tap do |param|
+          param[:kc_locale] = current_locale
+        end
+      end
+
+      def query_string
+        ""
+      end
+
+      private
+
+      def current_locale
+        request.params["locale"] || I18n.default_locale
+      end
     end
   end
 end
