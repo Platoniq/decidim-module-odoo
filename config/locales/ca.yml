@@ -1,0 +1,41 @@
+---
+ca:
+  decidim:
+    admin:
+      filters:
+        coop_candidate_eq:
+          label: És candidat a soci
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        member_eq:
+          label: És soci
+          values:
+            'false': 'No'
+            'true': 'Sí'
+    authorization_handlers:
+      odoo_member:
+        explanation: Verficar la condició societària de la persona
+        name: Membre d'Odoo
+    odoo:
+      admin:
+        members:
+          index:
+            actions: Accions
+            alias: Àlies
+            contact: Contacte
+            coop_candidate: Candidat a soci
+            empty: No hi ha socis a la base de dades
+            last_sync: Última sincronització
+            member: Socia
+            name: Nom
+            odoo_id: Odoo ID
+            ref: Ref
+            show_email: Mostrar correu electrònic
+            sync: Sincronitzar amb Odoo
+            sync_all: Sincronitzar tot amb Odoo
+            title: Socis a Odoo
+          sync:
+            success: La sincronització ha començat. Pot trigar uns quants minuts
+      errors:
+        not_found: L'usuari d'Odoo no s'ha trobat
