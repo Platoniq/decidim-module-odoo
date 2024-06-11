@@ -1,0 +1,41 @@
+---
+es:
+  decidim:
+    admin:
+      filters:
+        coop_candidate_eq:
+          label: Es candidato a socio
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        member_eq:
+          label: Es socio
+          values:
+            'false': 'No'
+            'true': 'Sí'
+    authorization_handlers:
+      odoo_member:
+        explanation: Verificar la condición societaria de la persona
+        name: Miembro de Odoo
+    odoo:
+      admin:
+        members:
+          index:
+            actions: Acciones
+            alias: Alias
+            contact: Contacto
+            coop_candidate: Candidato a socio
+            empty: No hay socios en la base de datos
+            last_sync: Última sincronización
+            member: Socio
+            name: Nombre
+            odoo_id: Odoo ID
+            ref: Ref
+            show_email: Mostrar email
+            sync: Sincronizar con Odoo
+            sync_all: Sincronizar todo con Odoo
+            title: Socios en Odoo
+          sync:
+            success: La sincronización ha comenzado. Puede llevar varios minutos
+      errors:
+        not_found: El usuario de Odoo no se ha encontrado
